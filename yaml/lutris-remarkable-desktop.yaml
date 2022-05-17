@@ -1,0 +1,19 @@
+---
+name: reMarkable Desktop
+game_slug: remakrable-desktop
+version: Installer
+slug: remarkable-installer
+runner: wine
+script:
+  files:
+    - remarkableinstaller: https://downloads.remarkable.com/desktop/production/win/reMarkable-2.12.2.251-win32.exe
+  installer:
+    - task:
+        executable: remarkableinstaller
+        name: wineexec
+        prefix: $GAMEDIR
+  game:
+    exe: $GAMEDIR/drive_c/Program Files (x86)/reMarkable/reMarkable.exe
+    arch: win64
+    prefix: $GAMEDIR
+...

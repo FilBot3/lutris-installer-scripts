@@ -1,0 +1,19 @@
+---
+name: DriveThruRPG Library Client
+game_slug: dtrpg-library-client
+version: Installer
+slug: dtrpg-installer
+runner: wine
+script:
+  files:
+    - dtrpginstaller: https://dtrpg-library-app.s3.us-east-2.amazonaws.com/DriveThruRPG_setup_v3.1.5.1.exe
+  installer:
+    - task:
+        executable: dtrpginstaller
+        name: wineexec
+        prefix: $GAMEDIR
+  game:
+    exe: $GAMEDIR/drive_c/Program Files/DriveThruRPG/drivethrurpg.exe
+    arch: win64
+    prefix: $GAMEDIR
+...
